@@ -1,0 +1,103 @@
+* {
+	padding: 0px;
+ 	margin: 0px;
+	font-family: sans-serif;
+}	
+
+#masthead {
+	display: block;
+	font-size: 40px;
+	margin: 30px;
+	margin-left: 30px;
+	color: #3366cc;
+	align-content: left;
+}
+
+#input_field {
+	display: block;
+	margin: 30px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	margin-top: 60px;
+}
+
+#task {
+	border: none;
+	border-bottom: 1px solid Gainsboro;
+	padding: 3px;
+	margin-right: 6px; 
+	outline: 0;
+	font-size: 20px;
+}	
+
+#add_btn {
+	position: relative;
+	top: -4px;
+	margin: 0px;
+	text-align: center;
+	vertical-align: middle;
+	border: solid 2px;
+	padding: 0px;
+	padding-left: 5px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	font-size: 15px;
+	color: lightslategrey;
+	cursor: pointer;
+}
+
+#add_btn:hover {
+	color: Gainsboro;
+}
+
+#list {
+	display: block;
+	list-style-type: none;
+}
+
+#taskitem {
+	display: inline-block;
+	margin: 20px;
+	margin-left: 40px;
+}
+
+#taskitem:hover {
+	cursor: pointer;
+  color: red;
+}
+
+#taskitem.checked {
+	color: red;
+  text-decoration: line-through;
+}
+
+#rm_btn {
+	position: fixed;
+	display: inline;
+	font-size: 22px;
+	bottom: 0;
+	right: 0;
+	margin: 45px;
+	margin-right: 50px;
+	padding: 2px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: solid 2px;
+	border-color: black;
+	background-color: brown;
+	color: black;
+	box-shadow: 3px 3px grey;  
+	cursor: pointer;
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+}
+
+#rm_btn:active {
+	margin: 42px;
+	margin-right: 48px;
+	box-shadow: none;
+}
