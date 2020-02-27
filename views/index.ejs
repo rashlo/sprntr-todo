@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+	<title>SPRNTR</title>
+
+</head>
+
+
+<body>
+	<div id="wrapper">
+		
+		<div id="masthead">SPRNTR</div>
+
+		<div id="input_field">
+			<form action="" method="POST" class="todo-header">
+			<input type="text" id="task" placeholder="...What to do?" name="content">
+			<button type="submit"><span id="add_btn">+</span></button>
+			</form>
+		</div>
+		
+		<% todoTasks.forEach(details => { %>
+		  <div id="list">
+		  </div>
+    <% }) %>	
+		
+		<div id="rm_btn">x</div>			
+	
+	</div>
+</body>
+
+	<script src="app.js" defer></script>
+
+</html>
