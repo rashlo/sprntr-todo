@@ -18,16 +18,25 @@
 		<div id="masthead">SPRNTR</div>
 
 		<div id="input_field">
-			<form action="" method="POST" class="todo-header">
+			<form action="" method="POST" class="todo-header" autocomplete="off">
 			<input type="text" id="task" placeholder="...What to do?" name="content">
 			<button type="submit"><span id="add_btn">+</span></button>
 			</form>
 		</div>
 		
-		<% todoTasks.forEach(details => { %>
-		  <div id="list">
-		  </div>
-    <% }) %>	
+		<ul class="todo-list">
+			<% todoTasks.forEach(details => { %>
+			<li class="todo-list-item">
+				<div class="todo-list-item-name"><%= details.content %></div>
+				<a href="/edit/<%= details._id %>" class="edit">
+					<span>edit</span>
+				</a>
+				<a href="/remove/<%= details._id %>" class="remove">
+					<span>delete</span>
+				</a>
+			</li>
+			<% }) %>
+		</ul>
 		
 		<div id="rm_btn">x</div>			
 	

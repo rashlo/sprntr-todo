@@ -1,20 +1,20 @@
+const TodoTask = require("./models/todoTask");
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv').config();
 const bodyParser= require('body-parser')
 const path = require('path');
 const favicon = require('serve-favicon');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8080;
 }
 
-const TodoTask = require("./models/todoTask");
-
-app.use(bodyParser.urlencoded({extended: true}))
-
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.cookieParser());
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -28,11 +28,11 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
 	TodoTask.find({}, (err, tasks) => {
-		res.render("index.ejs", { todoTasks: tasks });
+		res.render("todo.ejs", { todoTasks: tasks });
 	});
 });
 
-app.post('/',async (req, res) => {
+app.post('/', async (req, res) => {
 	const todoTask = new TodoTask({
 		content: req.body.content
 	});
@@ -44,5 +44,29 @@ app.post('/',async (req, res) => {
 	}
 	console.log(req.body)
 });
+
+app
+	.route("/edit/:id")
+	.get((req, res) => {
+		const id = req.params.id;
+		TodoTask.find({}, (err, tasks) => {
+			res.render("todoEdit.ejs", { todoTasks: tasks, idTask: id });
+		});
+	})
+	.post((req, res) => {
+		const id = req.params.id;
+			TodoTask.findByIdAndUpdate(id, { content: req.body.content }, err => {
+			if (err) return res.send(500, err);
+			res.redirect("/");
+		});
+	});
+
+app.route("/remove/:id").get((req, res) => {
+	const id = req.params.id;
+	TodoTask.findByIdAndRemove(id, err => {
+		if (err) return res.send(500, err);
+		res.redirect("/");
+	});
+});	
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
