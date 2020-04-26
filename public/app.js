@@ -18,8 +18,10 @@ const addTask = function () {
 
 	li.setAttribute("id", "taskitem")
 	//once <li> is added, the <input type="text" id="task"> field empties
-	document.querySelector("#task").value = "";
+	document.querySelector("#task").value = ""
 };
+
+
 
 addBtn.onclick = addTask;
 
@@ -45,3 +47,6 @@ const rmContent = function () {
 }
 
 rmBtn.onclick = rmContent;
+
+
+
